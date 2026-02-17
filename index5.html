@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Performance Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="C:\Users\DELL\New folder\JAVA_SCRIPT\#CSS\#index5.css">
+    <style>
+        /* Custom glassmorphic styles */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Responsive grid adjustments */
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 250px;
+                height: 100%;
+                transition: left 0.3s;
+            }
+            .sidebar.open {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen font-sans">
+    <!-- Sidebar -->
+    <aside class="sidebar glass fixed top-0 left-0 w-64 h-full p-6 z-10">
+        <h2 class="text-xl font-bold mb-8">AI Dashboard</h2>
+        <nav class="space-y-4">
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700">
+                <i class="fas fa-users"></i>
+                <span>Agents</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700">
+                <i class="fas fa-file-alt"></i>
+                <span>Logs</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-6 dashboard-grid grid grid-cols-3 grid-rows-2 gap-6 min-h-screen">
+        <!-- Top Bar -->
+        <header class="col-span-3 flex justify-between items-center bg-gray-800 p-4 rounded-lg">
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                <input type="text" placeholder="Search..." class="bg-gray-700 p-2 rounded-lg w-64">
+            </div>
+            <div class="flex items-center space-x-2 bg-gray-700 p-2 rounded-full">
+                <img src="https://via.placeholder.com/32" alt="Profile" class="w-8 h-8 rounded-full">
+                <br>
+                <br>
+                <span>User Name</span>
+            </div>
+        </header>
+
+        <!-- Metric Cards -->
+        <div class="col-span-3 grid grid-cols-4 gap-4">
+            <div class="bg-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                <h3 class="text-sm font-semibold">Active Agents</h3>
+                <p class="text-2xl font-bold">42</p>
+                <div class="sparkline mt-2"><svg viewBox="0 0 100 20">
+    <path d="M0,10 Q25,5 50,15 T100,10" />
+</svg>
+</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                <h3 class="text-sm font-semibold">Success Rate</h3>
+                <p class="text-2xl font-bold">95%</p>
+                <div class="sparkline mt-2"></div>
+                <svg viewBox="0 0 100 20">
+    <path d="M0,10 Q25,5 50,15 T100,10" />
+</svg>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                <h3 class="text-sm font-semibold">Token Usage</h3>
+                <p class="text-2xl font-bold">1.2M</p>
+                <div class="sparkline mt-2"></div>
+                <svg viewBox="0 0 100 20">
+    <path d="M0,10 Q25,5 50,15 T100,10" />
+</svg>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                <h3 class="text-sm font-semibold">GPU Load</h3>
+                <p class="text-2xl font-bold">78%</p>
+                <div class="sparkline mt-2"></div>
+                <svg viewBox="0 0 100 20">
+    <path d="M0,10 Q25,5 50,15 T100,10" />
+</svg>
+            </div>
+        </div>
+
+        <!-- Live Agent Activity Table -->
+        <div class="col-span-3 bg-gray-800 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold mb-4">Live Agent Activity</h3>
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="border-b border-gray-700">
+                        <th class="p-2">Agent ID</th>
+                        <th class="p-2">Status</th>
+                        <th class="p-2">Last Activity</th>
+                        <th class="p-2">Performance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-700">
+                        <td class="p-2">Agent-001</td>
+                        <td class="p-2 text-green-400">Active</td>
+                        <td class="p-2">2 mins ago</td>
+                        <td class="p-2">High</td>
+                    </tr>
+                    <tr class="border-b border-gray-700">
+                        <td class="p-2">Agent-002</td>
+                        <td class="p-2 text-yellow-400">Idle</td>
+                        <td class="p-2">5 mins ago</td>
+                        <td class="p-2">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">Agent-003</td>
+                        <td class="p-2 text-red-400">Error</td>
+                        <td class="p-2">10 mins ago</td>
+                        <td class="p-2">Low</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
