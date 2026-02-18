@@ -2,7 +2,7 @@
 
 A futuristic, high-efficiency dashboard interface designed to showcase advanced CSS layouts and the "AI-to-UI" speed workflow. 
 
-**Live Demo:** [Paste your Vercel Link Here]
+
 
 ---
 
@@ -15,7 +15,7 @@ This project was built in **30 minutes** using an AI-orchestrated workflow. By m
 ## 🛠️ Tech Stack
 - **HTML5:** Semantic structure for accessibility.
 - **CSS3:** Advanced Grid, Flexbox, and Glassmorphism.
-- **AI Tooling:** [Mention tool used, e.g., Gemini/ChatGPT] for layout orchestration.
+- **AI Toolings:[ Gemini/ChatGPT] for layout orchestration.
 
 ## ✨ Key Features
 - **Responsive Layout:** Perfectly aligned from mobile to 4K monitors.
@@ -23,7 +23,7 @@ This project was built in **30 minutes** using an AI-orchestrated workflow. By m
 - **Performance Metrics:** Simulated live-tracking cards for AI agent monitoring.
 
 ## 📂 How to Run Locally
-1. Clone the repo: `git clone https://github.com/yourusername/repo-name.git`
+1. Clone the repo: `https://github.com/jaanvii-panch08/ai-performance-dashboard`
 2. Open `index.html` in your browser.
 
 ---
